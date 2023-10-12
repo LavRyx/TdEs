@@ -3,7 +3,7 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 
 /**
- * РљР»Р°СЃСЃ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ С„Р°Р№Р»Р°РјРё Рё Р·Р°РІРµСЂС€РµРЅРёСЏ РїРѕС‚РѕРєРѕРІ
+ * Класс для работы с файлами и завершения потоков
  */
 class FileWriterUtility {
     private final String currentFileName = "currentdata.txt";
@@ -15,7 +15,7 @@ class FileWriterUtility {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String timeString = dateFormat.format(calendar.getTime());
 
-            for (char c : ("the first thread writes the time: " + timeString).toCharArray()) {
+            for (char c : ("Запись первого потока: " + timeString).toCharArray()) {
                 fileWriter.write(c);
                 fileWriter.flush();
                 try {
@@ -40,7 +40,7 @@ class FileWriterUtility {
                 String timeString = dateFormat.format(calendar.getTime());
                 String newFileName ="data_" + timeString + ".txt";
 
-                // РЎРѕС…СЂР°РЅСЏРµРј СЃРѕРґРµСЂР¶РёРјРѕРµ С‚РµРєСѓС‰РµРіРѕ С„Р°Р№Р»Р° РІ Р±СЌРєР°РїРµ
+                // бэкап
                 try (BufferedReader reader = new BufferedReader(new FileReader(currentFileName));
                      FileWriter backupWriter = new FileWriter(newFileName)) {
                     String line;
@@ -52,14 +52,14 @@ class FileWriterUtility {
                     e.printStackTrace();
                 }
 
-                // РћР±РЅСѓР»СЏРµРј С‚РµРєСѓС‰РёР№ С„Р°Р№Р»
+
                 try (FileWriter fileWriter = new FileWriter(currentFileName)) {
-                    fileWriter.write(""); // РћС‡РёС‰Р°РµРј С‚РµРєСѓС‰РёР№ С„Р°Р№Р»
+                    fileWriter.write(""); // Очищаем текущий файл
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                System.out.println("File saved as: " + newFileName);
+                System.out.println("Файл сохранен: " + newFileName);
             }
         }
     }

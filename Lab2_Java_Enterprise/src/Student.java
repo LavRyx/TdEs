@@ -3,7 +3,6 @@ import java.util.*;
 class Student implements Comparable<Student> {
     private final String lastName;
     private final double averageGrade;
-
     private final int age;
 
     public Student(String lastName, double averageGrade, int age) {

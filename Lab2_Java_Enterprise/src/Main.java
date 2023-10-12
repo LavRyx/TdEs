@@ -6,10 +6,10 @@ public class Main {
 
 
         while (true) {
-            System.out.println("\n1. РЈРЅРёРєР°Р»СЊРЅС‹Рµ С„Р°РјРёР»РёРё");
-            System.out.println("2. РўРµСЃС‚ List");
-            System.out.println("3. РЎСЂРµРґРЅРёР№ Р±Р°Р»Р»");
-            System.out.println("4. РЎРѕСЂС‚РёСЂРѕРІРєРё СЃС‚СѓРґРµРЅС‚РѕРІ");
+            System.out.println("\n1. Уникальные фамилии");
+            System.out.println("2. Тест List");
+            System.out.println("3. Средний балл");
+            System.out.println("4. Сортировки студентов");
             System.out.println("5. HashSet");
             System.out.println("6. Exit\n");
 
@@ -22,12 +22,12 @@ public class Main {
                 case 4 -> Ex_4();
                 case 5 -> Ex_5();
                 case 6 -> {
-                    System.out.println("Р’С‹С…РѕРґ");
+                    System.out.println("Выход");
                     scanner.close();
                     System.exit(0);
                 }
 
-                default -> System.out.println("Р’РІРµРґРёС‚Рµ С†РёС„СЂС‹");
+                default -> System.out.println("Введите цифры");
             }
         }
     }
@@ -38,29 +38,25 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> surnames = new ArrayList<>();
 
-        // Р’РІРѕРґ С„Р°РјРёР»РёР№ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
         for (int i = 0; i < 10; i++) {
-            System.out.print("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ " + (i + 1) + ": ");
+            System.out.print("Введите фамилию " + (i + 1) + ": ");
             String surname = scanner.nextLine();
             surnames.add(surname);
         }
 
-        // РЎРѕСЂС‚РёСЂРѕРІРєР° С„Р°РјРёР»РёР№
         Collections.sort(surnames);
 
-        System.out.println("РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Рµ С„Р°РјРёР»РёРё:");
+        System.out.println("Отсортированные фамилии:");
         for (String surname : surnames) {
             System.out.println(surname);
         }
 
-        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РІСЃС‚СЂРµС‡Р°СЋС‰РёС…СЃСЏ С„Р°РјРёР»РёР№
-        System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ РІСЃС‚СЂРµС‡Р°СЋС‰РёС…СЃСЏ С„Р°РјРёР»РёР№:");
+        System.out.println("Количество встречающихся фамилий:");
         for (String surname : surnames) {
             int count = Collections.frequency(surnames, surname);
             System.out.println(surname + ": " + count);
         }
 
-        // РЈРґР°Р»РµРЅРёРµ РїРѕРІС‚РѕСЂСЏСЋС‰РёС…СЃСЏ С„Р°РјРёР»РёР№
         for (int i = 0; i < surnames.size() - 1; i++) {
             for (int j = i + 1; j < surnames.size(); j++) {
                 if (surnames.get(i).equals(surnames.get(j))) {
@@ -70,7 +66,7 @@ public class Main {
             }
         }
 
-        System.out.println("Р¤Р°РјРёР»РёРё Р±РµР· РїРѕРІС‚РѕСЂРµРЅРёР№:");
+        System.out.println("Фамилии без повторений:");
         for (String surname : surnames) {
             System.out.println(surname);
         }
@@ -81,7 +77,7 @@ public class Main {
         int numOperations = 1000000;
         int numDeletions = 1000;
 
-        // Р”РѕР±Р°РІР»РµРЅРёРµ arrayList
+        // Добавление arrayList
         long startTime = System.currentTimeMillis();
         List<Integer> arrayList = new ArrayList<>();
         for (int i = 0; i < numOperations; i++) {
@@ -89,17 +85,18 @@ public class Main {
         }
         long endTime = System.currentTimeMillis();
         long arrayListAddTime = endTime - startTime;
+        //-------------------
 
-        // РЈРґР°Р»РµРЅРёРµ arrayList
+        // Удаление arrayList
         startTime = System.currentTimeMillis();
         for (int i = 0; i < numDeletions; i++) {
             arrayList.remove(0);
         }
         endTime = System.currentTimeMillis();
         long arrayListRemoveTime = endTime - startTime;
+        //-------------------
 
-
-        // Р”РѕР±Р°РІР»РµРЅРёРµ LinkedList
+        // Добавление LinkedList
         startTime = System.currentTimeMillis();
         List<Integer> linkedList = new LinkedList<>();
         for (int i = 0; i < numOperations; i++) {
@@ -107,34 +104,33 @@ public class Main {
         }
         endTime = System.currentTimeMillis();
         long linkedListAddTime = endTime - startTime;
+        //-------------------
 
-        // РЈРґР°Р»РµРЅРёРµ LinkedList
+        // Удаление LinkedList
         startTime = System.currentTimeMillis();
         for (int i = 0; i < numDeletions; i++) {
             linkedList.remove(0);
         }
         endTime = System.currentTimeMillis();
         long linkedListRemoveTime = endTime - startTime;
+        //-------------------
 
-        System.out.println("ArrayList РґРѕР±Р°РІР»РµРЅРёРµ: " + arrayListAddTime + " РјРёР»Р»РёСЃРµРєСѓРЅРґ");
-        System.out.println("ArrayList СѓРґР°Р»РµРЅРёРµ: " + arrayListRemoveTime + " РјРёР»Р»РёСЃРµРєСѓРЅРґ");
-        System.out.println("LinkedList РґРѕР±Р°РІР»РµРЅРёРµ: " + linkedListAddTime + " РјРёР»Р»РёСЃРµРєСѓРЅРґ");
-        System.out.println("LinkedList СѓРґР°Р»РµРЅРёРµ: " + linkedListRemoveTime + " РјРёР»Р»РёСЃРµРєСѓРЅРґ\n");
+        System.out.println("ArrayList добавление: " + arrayListAddTime + " миллисекунд");
+        System.out.println("ArrayList удаление: " + arrayListRemoveTime + " миллисекунд");
+        System.out.println("LinkedList добавление: " + linkedListAddTime + " миллисекунд");
+        System.out.println("LinkedList удаление: " + linkedListRemoveTime + " миллисекунд\n");
 
     }
 
     static void Ex_3() {
-        // РЎРѕР·РґР°РµРј TreeMap РґР»СЏ С…СЂР°РЅРµРЅРёСЏ СЃС‚СѓРґРµРЅС‚РѕРІ
         TreeMap<Student, Double> studentMap = new TreeMap<>();
 
-        // Р”РѕР±Р°РІР»СЏРµРј СЃС‚СѓРґРµРЅС‚РѕРІ РІ РєРѕР»Р»РµРєС†РёСЋ
-        studentMap.put(new Student("РРІР°РЅРѕРІ", 4.2, 19), 4.2);
-        studentMap.put(new Student("РџРµС‚СЂРѕРІ", 3.1, 20), 3.1);
-        studentMap.put(new Student("РЎРёРґРѕСЂРѕРІ", 2.6, 23), 2.6);
-        studentMap.put(new Student("РљСЋС€РёРЅ", 4.0, 20), 4.0);
-        studentMap.put(new Student("Р§РµСЂРЅС‹С€РѕРІ", 5.0, 20), 5.0);
+        studentMap.put(new Student("Иванов", 4.2, 19), 4.2);
+        studentMap.put(new Student("Петров", 3.1, 20), 3.1);
+        studentMap.put(new Student("Сидоров", 2.6, 23), 2.6);
+        studentMap.put(new Student("Кюшин", 4.0, 20), 4.0);
+        studentMap.put(new Student("Чернышов", 5.0, 20), 5.0);
 
-        // Р’С‹РІРѕРґРёРј СЃС‚СѓРґРµРЅС‚РѕРІ РІ РїРѕСЂСЏРґРєРµ РІРѕР·СЂР°СЃС‚Р°РЅРёСЏ СЃСЂРµРґРЅРµРіРѕ Р±Р°Р»Р°
         for (Student student : studentMap.keySet()) {
             System.out.println(student.getLastName() + ": " + student.getAverageGrade());
         }
@@ -142,31 +138,28 @@ public class Main {
 
     static void Ex_4() {
         List<Student> students = new ArrayList<>();
-        students.add(new Student("РРІР°РЅРѕРІ", 4.2, 19));
-        students.add(new Student("РџРµС‚СЂРѕРІ", 3.1, 20));
-        students.add(new Student("РЎРёРґРѕСЂРѕРІ", 2.6, 23));
-        students.add(new Student("РљСЋС€РёРЅ", 4.0, 20));
-        students.add(new Student("Р§РµСЂРЅС‹С€РѕРІ", 5.0, 20));
+        students.add(new Student("Иванов", 4.2, 19));
+        students.add(new Student("Петров", 3.1, 20));
+        students.add(new Student("Сидоров", 2.6, 23));
+        students.add(new Student("Кюшин", 4.0, 20));
+        students.add(new Student("Чернышов", 5.0, 20));
 
-        // РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ С„Р°РјРёР»РёРё
         students.sort(new LastNameComparator());
-        System.out.println("РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ С„Р°РјРёР»РёРё:");
+        System.out.println("Сортировка по фамилии:");
         for (Student student : students) {
-            System.out.println("Р¤Р°РјРёР»РёСЏ: " + student.getLastName());
+            System.out.println("Фамилия: " + student.getLastName());
         }
 
-        // РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СЃСЂРµРґРЅРµРјСѓ Р±Р°Р»Сѓ
         students.sort(new AverageGradeComparator());
-        System.out.println("\nРЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СЃСЂРµРґРЅРµРјСѓ Р±Р°Р»Сѓ:");
+        System.out.println("\nСортировка по среднему балу:");
         for (Student student : students) {
-            System.out.println("РЎСЂРµРґРЅРёР№ Р±Р°Р»: " + student.getAverageGrade());
+            System.out.println("Средний бал: " + student.getAverageGrade());
         }
 
-        // РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РІРѕР·СЂР°СЃС‚Сѓ
         students.sort(new AgeComparator());
-        System.out.println("\nРЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РІРѕР·СЂР°СЃС‚Сѓ:");
+        System.out.println("\nСортировка по возрасту:");
         for (Student student : students) {
-            System.out.println("Р’РѕР·СЂР°СЃС‚: " + student.getAge());
+            System.out.println("Возраст: " + student.getAge());
 
         }
     }
@@ -175,17 +168,17 @@ public class Main {
     static void Ex_5() {
         HashSet<Student> studentHashSet = new HashSet<>();
 
-        // Р”РѕР±Р°РІР»СЏРµРј СЃС‚СѓРґРµРЅС‚РѕРІ РІ РєРѕР»Р»РµРєС†РёСЋ HashSet
-        studentHashSet.add(new Student("РРІР°РЅРѕРІ", 4.5, 20));
-        studentHashSet.add(new Student("РџРµС‚СЂРѕРІ", 3.8, 22));
-        studentHashSet.add(new Student("РРІР°РЅРѕРІ", 4.2, 21));
-        studentHashSet.add(new Student("РЎРёРґРѕСЂРѕРІ", 2.6, 23));
-        studentHashSet.add(new Student("РљСЋС€РёРЅ", 4.0, 20));
-        studentHashSet.add(new Student("Р§РµСЂРЅС‹С€РѕРІ", 5.0, 20));
-        studentHashSet.add(new Student("Р§РµСЂРЅС‹С€РѕРІ", 4.9, 51));
+        // Добавляем студентов в коллекцию HashSet
+        studentHashSet.add(new Student("Иванов", 4.5, 20));
+        studentHashSet.add(new Student("Петров", 3.8, 22));
+        studentHashSet.add(new Student("Иванов", 4.2, 21));
+        studentHashSet.add(new Student("Сидоров", 2.6, 23));
+        studentHashSet.add(new Student("Кюшин", 4.0, 20));
+        studentHashSet.add(new Student("Чернышов", 5.0, 20));
+        studentHashSet.add(new Student("Чернышов", 4.9, 51));
 
         for (Student student : studentHashSet) {
-            System.out.println("Р¤Р°РјРёР»РёСЏ: " + student.getLastName() + ", РЎСЂРµРґРЅРёР№ Р±Р°Р»: " + student.getAverageGrade());
+            System.out.println("Фамилия: " + student.getLastName() + ", Средний бал: " + student.getAverageGrade());
 
         }
     }
