@@ -1,7 +1,15 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Square square = new Square();
-        AreaCalculator.calculateArea(square);
+
+        Scanner scanner = new Scanner(System.in);
+
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+
+        Table table = new Table(a, b);
+        AreaCalculator.calculateArea(table);
 
     }
 
