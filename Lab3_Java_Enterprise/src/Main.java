@@ -10,6 +10,8 @@ public class Main {
 
         Table table = new Table(a, b);
         AreaCalculator.calculateArea(table);
+        AreaCalculator.calculateArea("1234");
+
 
     }
 
