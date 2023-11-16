@@ -26,11 +26,11 @@ class DOMProcessor {
                 Element studentElement = doc.createElement("student");
                 rootElement.appendChild(studentElement);
 
-                Element nameElement = doc.createElement("РРјСЏ");
+                Element nameElement = doc.createElement("Имя");
                 nameElement.appendChild(doc.createTextNode(student.getName()));
                 studentElement.appendChild(nameElement);
 
-                Element ageElement = doc.createElement("Р’РѕР·СЂР°СЃС‚");
+                Element ageElement = doc.createElement("Возраст");
                 ageElement.appendChild(doc.createTextNode(String.valueOf(student.getAge())));
                 studentElement.appendChild(ageElement);
             }
@@ -44,7 +44,7 @@ class DOMProcessor {
             StreamResult result = new StreamResult("students.xml");
             transformer.transform(source, result);
 
-            System.out.println("XML С„Р°Р№Р» СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ.");
+            System.out.println("XML файл успешно создан.");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,16 +55,16 @@ class DOMProcessor {
         ArrayList<Student> students = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ: ");
+        System.out.print("Введите количество студентов: ");
         int numStudents = scanner.nextInt();
         scanner.nextLine();
 
         for (int i = 0; i < numStudents; i++) {
-            System.out.println("РЎС‚СѓРґРµРЅС‚ " + (i + 1));
-            System.out.print("РРјСЏ: ");
+            System.out.println("Студент " + (i + 1));
+            System.out.print("Имя: ");
             String name = scanner.nextLine();
 
-            System.out.print("Р’РѕР·СЂР°СЃС‚: ");
+            System.out.print("Возраст: ");
             int age = scanner.nextInt();
             scanner.nextLine();
 

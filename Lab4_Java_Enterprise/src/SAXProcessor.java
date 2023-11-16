@@ -16,19 +16,19 @@ public class SAXProcessor {
                 boolean bAge = false;
 
                 public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-                    if (qName.equalsIgnoreCase("РРјСЏ")) {
+                    if (qName.equalsIgnoreCase("Имя")) {
                         bName = true;
-                    } else if (qName.equalsIgnoreCase("Р’РѕР·СЂР°СЃС‚")) {
+                    } else if (qName.equalsIgnoreCase("Возраст")) {
                         bAge = true;
                     }
                 }
 
                 public void characters(char[] ch, int start, int length) throws SAXException {
                     if (bName) {
-                        System.out.println("РРјСЏ: " + new String(ch, start, length));
+                        System.out.println("Имя: " + new String(ch, start, length));
                         bName = false;
                     } else if (bAge) {
-                        System.out.println("Р’РѕР·СЂР°СЃС‚: " + new String(ch, start, length));
+                        System.out.println("Возраст: " + new String(ch, start, length));
                         bAge = false;
                     }
                 }
