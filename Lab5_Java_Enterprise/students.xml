@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<studentListWrapper>
+    <student>
+        <age>23</age>
+        <course>2</course>
+        <name>Попкин</name>
+    </student>
+    <student>
+        <age>1</age>
+        <course>2</course>
+        <name>Залупкин</name>
+    </student>
+</studentListWrapper>
