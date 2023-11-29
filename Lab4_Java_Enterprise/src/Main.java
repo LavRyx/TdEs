@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,12 +7,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("ĞœĞµĞ½Ñ:");
-            System.out.println("1. Ğ¡Ğ¾Ğ·Ğ´Ğ°Ñ‚ÑŒ XML Ñ„Ğ°Ğ¹Ğ» Ñ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸ĞµĞ¼ DOM");
-            System.out.println("2. ĞŸÑ€Ğ¾Ñ‡Ğ¸Ñ‚Ğ°Ñ‚ÑŒ XML Ñ„Ğ°Ğ¹Ğ» Ğ¸ ÑĞ¾Ğ·Ğ´Ğ°Ñ‚ÑŒ ÑĞ¿Ğ¸ÑĞ¾Ğº ÑÑ‚ÑƒĞ´ĞµĞ½Ñ‚Ğ¾Ğ² Ñ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸ĞµĞ¼ SAX");
-            System.out.println("0. Ğ’Ñ‹Ğ¹Ñ‚Ğ¸");
+            System.out.println("Ìåíş:");
+            System.out.println("1. Ñîçäàòü XML ôàéë ñ èñïîëüçîâàíèåì DOM");
+            System.out.println("2. Ïğî÷èòàòü XML ôàéë è ñîçäàòü ñïèñîê ñòóäåíòîâ ñ èñïîëüçîâàíèåì SAX");
+            System.out.println("0. Âûéòè");
 
-            System.out.print("Ğ’Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ Ğ´ĞµĞ¹ÑÑ‚Ğ²Ğ¸Ğµ: ");
+            System.out.print("Âûáåğèòå äåéñòâèå: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -21,17 +20,12 @@ public class Main {
                 case 1 -> DOMProcessor.createXMLFile();
                 case 2 -> SAXProcessor.readXMLFile();
                 case 0 -> {
-                    System.out.println("Ğ’Ñ‹Ñ…Ğ¾Ğ´ Ğ¸Ğ· Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹.");
+                    System.out.println("Âûõîä èç ïğîãğàììû.");
                     System.exit(0);
                 }
-                default -> System.out.println("ĞĞµĞ²ĞµÑ€Ğ½Ñ‹Ğ¹ Ğ²Ñ‹Ğ±Ğ¾Ñ€. ĞŸĞ¾Ğ¿Ñ€Ğ¾Ğ±ÑƒĞ¹Ñ‚Ğµ ĞµÑ‰Ğµ Ñ€Ğ°Ğ·.");
+                default -> System.out.println("Íåâåğíûé âûáîğ. Ïîïğîáóéòå åùå ğàç.");
             }
         }
     }
 }
-=======
-public class Main {
 
-
-}
->>>>>>> 5281fef1ab90e2a1f193610e8a23689d94bdedd3
